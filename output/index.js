@@ -15,12 +15,15 @@ const writeToFile = (url_map, filename) => {
         return;
     }
     
+    let str = '';
     for(let url in url_map) {
 
         if(url_map[url]) {
-            fs.appendFileSync(filename, `${url},\n` );
+            str += `${url},\n`;            
         }
     }
+
+    fs.appendFileSync(filename, str );
 
     console.log(`File updated. Path: ${file_path}`);
 }
